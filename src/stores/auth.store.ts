@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { decodeCredential } from 'vue3-google-login';
 import type { CallbackTypes } from "vue3-google-login";
 import type { UserModel } from '@/models/user.model';
+import router from '@/router';
 
 interface AuthState {
     authenticated: boolean,
@@ -39,12 +40,15 @@ export const useAuthStore = defineStore({
         console.log(this.user)
 
         this.authenticated = true;
+
+        router.push("/");
     },
 
     logout(): void {
       localStorage.removeItem('token');
       this.authenticated = false;
       this.user = null;
+      router.push("/login")
     },
   },
 });

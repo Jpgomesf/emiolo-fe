@@ -9,7 +9,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      beforeEnter: authGuard,
     },
     {
       path: '/about',
