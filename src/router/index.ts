@@ -22,6 +22,33 @@ const router = createRouter({
       beforeEnter: authGuard,
     },
     {
+      path: '/spaceships',
+      name: 'spaceships',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('@/views/ShipsView.vue'),
+      beforeEnter: authGuard,
+    },
+    {
+      path: '/planets',
+      name: 'planets',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PlanetsView.vue'),
+      beforeEnter: authGuard,
+    },
+    {
+      path: '/characters',
+      name: 'chars',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/CharView.vue'),
+      beforeEnter: authGuard,
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('@/views/LoginView.vue'),
