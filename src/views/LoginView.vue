@@ -1,6 +1,6 @@
 <template>
     <section class="bg-white dark:bg-gray-900">
-        <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+        <div class="lg:grid lg:min-h-screen lg:grid-cols-12 sm:flex">
             <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-7">
                 <img alt="Pattern"
                     src="https://wallpapershome.com/images/wallpapers/sky-1920x1080-5k-4k-wallpaper-clouds-planet-light-atmosphere-cyclone-732.jpg"
@@ -40,10 +40,12 @@
 
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth.store';
+import { useVisibleStore } from '@/stores/visible.store';
 
+const visibleStore = useVisibleStore();
+visibleStore.toggleVisibilityOff();
 
 const authStore = useAuthStore();
-
 const callback = authStore.login;
 
 </script>

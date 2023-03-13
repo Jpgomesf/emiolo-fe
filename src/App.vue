@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import Navbar from '@/components/Navbar.vue';
+
+import { useVisibleStore } from '@/stores/visible.store';
+import { computed } from 'vue';
+
+const visibleStore = useVisibleStore();
+
+const isVisible = computed(() => visibleStore.isVisible);
 
 
 // const callback: CallbackTypes.CredentialCallback  = (res) => {
@@ -11,7 +19,11 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <Navbar v-if="isVisible"/>
+
+  <div class="dark:bg-gray-900 min-h-[93vh]">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
