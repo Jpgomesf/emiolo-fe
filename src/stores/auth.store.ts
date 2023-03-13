@@ -20,7 +20,13 @@ export const useAuthStore = defineStore({
       return state.authenticated
     },
     getUser(state): any {
-      return state.user;
+      if(state.user == null) {
+        const idToken: any = localStorage.getItem("token");
+        const user = decodeCredential(idToken);
+        return user;
+      } else {
+        return state.user;
+      }
     }
   },
   actions: {
