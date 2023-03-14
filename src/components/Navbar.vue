@@ -19,16 +19,8 @@
                                        Home
                                     </RouterLink>
                                 </li>
-
                                 <li>
-                                    <RouterLink to="/about" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    >
-                                        About
-                                    </RouterLink>
-                                </li>
-    
-                                <li>
-                                    <RouterLink to="/" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                    <RouterLink to="/users-list" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     >
                                         Users List
                                     </RouterLink>
@@ -42,14 +34,14 @@
                 <div class="flex items-center gap-4 text-sm">
                     <div class="sm:flex items-center sm:gap-4">
 
-                        <p class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75">
+                        <p class="text-gray-500 transition dark:text-white">
                             {{ user.name }}
                         </p>
 
                         <span aria-hidden="true" class="block h-6 w-px rounded-full bg-gray-200"></span>
 
-                        <div v-if="user.picture">
-                            <img class="h-8 w-8 rounded-full" :src="user.picture" alt=""> 
+                        <div v-if="pictureLoaded">
+                            <img class="h-8 w-8 rounded-full" :src="picture" alt=""> 
                         </div>
                         <div v-else>
                             <img class="h-8 w-8 rounded-full" src="https://i.imgur.com/5Ke5t6f.jpg" alt=""> 
@@ -82,9 +74,21 @@
 <script setup lang="ts">
 import type { UserModel } from '@/models/user.model';
 import { useAuthStore } from '@/stores/auth.store';
+import { ref, onMounted } from 'vue';
 
 const authStore = useAuthStore();
 const user: UserModel  = authStore.getUser;
+
+const pictureLoaded = ref(false)
+const picture = user.picture
+
+onMounted(() => {
+  const img = new Image()
+  img.onload = () => {
+    pictureLoaded.value = true
+  }
+  img.src = picture
+})
 
 </script>
 
