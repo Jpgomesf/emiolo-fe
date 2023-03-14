@@ -4,21 +4,17 @@
     <StarComponentList image="https://i.imgur.com/5Ke5t6f.jpg" title="Characters">
         <CharacterGroup />
     </StarComponentList>
+
+    <BackButton class="pt-3 justify-end"/>
 </template>
   
 <script setup lang="ts">
 import { useVisibleStore } from '@/stores/visible.store';
 import Header from '@/components/Header.vue';
-import { useStarStore } from '@/stores/star.store';
-import { onMounted } from 'vue';
 import StarComponentList from '@/components/StarComponentList.vue';
 import CharacterGroup from '@/components/CharacterGroup.vue';
+import BackButton from '@/components/BackButton.vue';
 
-const starStore = useStarStore();
-
-onMounted(() => {
-    starStore.fetchCharacters();
-})
 
 const charHeader = {
     title: "The Epic Struggle of Good and Evil in Star Wars",

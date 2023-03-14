@@ -4,21 +4,16 @@
     <StarComponentList image="https://rare-gallery.com/uploads/posts/504084-Spaceship-Star.jpg" title="Starships">
         <ShipGroup />
     </StarComponentList>
+
+    <BackButton class="pt-3 pb-5 justify-center"/> 
 </template>
   
 <script setup lang="ts">
 import { useVisibleStore } from '@/stores/visible.store';
 import Header from '@/components/Header.vue';
-import { useStarStore } from '@/stores/star.store';
-import { onMounted } from 'vue';
 import StarComponentList from '@/components/StarComponentList.vue';
 import ShipGroup from '@/components/ShipGroup.vue';
-
-const starStore = useStarStore();
-
-onMounted(() => {
-    starStore.fetchShips();
-})
+import BackButton from '@/components/BackButton.vue';
 
 const shipHeader = {
     title: "Exploring the Fascinating Spaceships of the Star Wars Universe",
