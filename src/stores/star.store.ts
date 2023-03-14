@@ -10,10 +10,23 @@ interface StarInterface {
   ships: ShipModel[] | null;
 }
 
-async function fetchAndSaveData(endpoint: string, key: string, store: any) {
+async function fetchAndSaveDataArray(endpoint: string, key: string, store: any) {
   try {
     const response = await star.get(endpoint);
     const data = response.data.results;
+    const saved = JSON.stringify(data);
+    localStorage.setItem(key, saved);
+    store[key] = data;
+    console.log(`Fetched and saved data for ${key}`);
+  } catch (error: any) {
+    console.error(`Error fetching data for ${key}: ${error.message}`);
+  }
+}
+
+async function fetchAndSaveData(endpoint: string, key: string, store: any) {
+  try{
+    const response = await star.get(endpoint);
+    const data = response.data;
     const saved = JSON.stringify(data);
     localStorage.setItem(key, saved);
     store[key] = data;
@@ -31,21 +44,40 @@ export const useStarStore = defineStore({
     ships: null,
   }),
   getters: {
-    getCharacters(state) {
+    getCharacters(state): CharacterModel[] | null {
       const data = localStorage.getItem('chars');
       return data ? JSON.parse(data) : state.characters;
     },
-    getShips(state) {
+    getShips(state):  ShipModel[] | null {
       const data = localStorage.getItem('ships');
       return data ? JSON.parse(data) : state.ships;
     },
+    getPlanet(state): PlanetModel | null {
+      const data = localStorage.getItem('planet');
+      return data ? JSON.parse(data) : state.planet;
+    }
   },
   actions: {
     async fetchCharacters() {
-      await fetchAndSaveData('people/', 'chars', this);
+      if(localStorage.getItem('chars')) {
+        return;
+      } else {
+        await fetchAndSaveDataArray('people/', 'chars', this);
+      }
     },
     async fetchShips() {
-      await fetchAndSaveData('starships/', 'ships', this);
+      if(localStorage.getItem('ships')) {
+        return;
+      } else {
+        await fetchAndSaveDataArray('starships/', 'ships', this);
+      }
     },
+    async fetchPlanet() {
+      if(localStorage.getItem('planet')) {
+        return;
+      } else {
+        await fetchAndSaveData('planets/1', 'planet', this);
+      }
+    }
   },
 });
