@@ -19,9 +19,9 @@ const isVisible = computed(() => visibleStore.isVisible);
 </script>
 
 <template>
-  <Navbar v-if="isVisible"/>
+  <div class="dark:bg-gray-900 min-h-screen">
+    <Navbar v-if="isVisible"/>
 
-  <div class="dark:bg-gray-900 min-h-[93vh]">
     <RouterView />
   </div>
 </template>
