@@ -20,6 +20,17 @@ import { useVisibleStore } from '@/stores/visible.store';
 import HomeCard from '@/components/HomeCard.vue';
 import Header from '@/components/Header.vue';
 
+import { useStarStore } from '@/stores/star.store';
+import { onMounted } from 'vue';
+
+const starStore = useStarStore();
+
+onMounted(() => {
+    starStore.fetchShips();
+    starStore.fetchCharacters();
+    starStore.fetchPlanet();
+})
+
 const homeHeader = {
   title: "Discover new things",
   description: "Here you will find the best info on your favorite Star Wars topics, and much more.",
