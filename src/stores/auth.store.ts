@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { decodeCredential } from 'vue3-google-login';
-import type { CallbackTypes } from "vue3-google-login";
 import type { UserModel } from '@/models/user.model';
 import router from '@/router';
 
@@ -54,7 +53,7 @@ export const useAuthStore = defineStore({
       localStorage.removeItem('token');
       this.authenticated = false;
       this.user = null;
-      router.push("/login")
+      router.push("/login");
     },
   },
 });
