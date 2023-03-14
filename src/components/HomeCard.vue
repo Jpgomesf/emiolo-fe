@@ -3,7 +3,7 @@
         <article class="overflow-hidden rounded-lg border h-max border-gray-400 shadow-sm">
             <img alt="Office" :src="picture" class="h-80 w-full object-cover" />
 
-            <div class="p-4 sm:p-6">
+            <div class="p-4">
                 <a>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl md:text-xl ">
                         {{ title }}
@@ -36,7 +36,7 @@ const props = defineProps<{
     link: string
 }>()
 
-const { message, title, picture } = props
+const { message, title, picture, link } = props
 </script>
 
 <style scoped></style>

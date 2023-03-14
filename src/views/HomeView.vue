@@ -1,7 +1,7 @@
 <template>
   <section class="bg-white dark:bg-gray-900">
 
-    <Header />
+    <Header :title="homeHeader.title" :description="homeHeader.description" />
     
     <div class="flex">
       <div class="flex container mx-auto space-x-4">
@@ -19,6 +19,11 @@
 import { useVisibleStore } from '@/stores/visible.store';
 import HomeCard from '@/components/HomeCard.vue';
 import Header from '@/components/Header.vue';
+
+const homeHeader = {
+  title: "Discover new things",
+  description: "Here you will find the best info on your favorite Star Wars topics, and much more.",
+}
 
 const charCard = {
   picture: "https://images4.alphacoders.com/675/thumb-1920-675554.jpg",
