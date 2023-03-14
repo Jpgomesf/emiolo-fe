@@ -1,15 +1,15 @@
 <template>
     <section class="bg-white dark:bg-gray-900">
-        <div class="lg:grid lg:min-h-screen lg:grid-cols-12 sm:flex">
+        <div class="lg:grid lg:min-h-screen lg:grid-cols-12 flex">
             <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-7">
                 <img alt="Pattern"
-                    src="https://wallpapershome.com/images/wallpapers/sky-1920x1080-5k-4k-wallpaper-clouds-planet-light-atmosphere-cyclone-732.jpg"
+                    src="https://i.imgur.com/5Ke5t6f.jpg"
                     class="absolute inset-0 h-full w-full object-cover" />
             </aside>
 
             <main aria-label="Main"
-                class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-5">
-                <div class="max-w-xl lg:max-w-3xl">
+                class="flex items-center justify-center py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-10 xl:col-span-5">
+                <div class="lg:max-w-3xl">
                     <a class="block text-blue-600" href="/">
                         <span class="sr-only">Home</span>
                         <svg class="h-8 sm:h-10" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
                         </svg>
                     </a>
 
-                    <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
+                    <h1 class="mt-6 font-bold text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-4xl">
                         Welcome to frontend-emiolo 🪐
                     </h1>
 
@@ -29,7 +29,7 @@
                         consectetur adipisicing elit. 
                     </p>
 
-                    <div class="flex items-center justify-center">
+                    <div class="flex mt-4 items-center justify-center">
                         <GoogleLogin :callback="callback" class="mt-5"/>
                     </div>
                 </div>

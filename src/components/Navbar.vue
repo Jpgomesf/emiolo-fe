@@ -1,6 +1,6 @@
 <template>
-    <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
-        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 lg:min-h-[7vh]">
+    <header aria-label="Site Header" class="dark:transparent">
+        <div class="container mx-auto lg:min-h-[7vh]">
             <div class="flex h-16 items-center justify-between">
                 <div class="md:flex md:items-center md:gap-12">
                     <a class="block text-teal-600 dark:text-teal-600" href="/">
@@ -13,6 +13,13 @@
                     <div class="hidden md:block">
                         <nav aria-label="Site Nav">
                             <ul class="flex items-center gap-6 text-sm">
+                                <li>
+                                    <RouterLink to="/" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                                    >
+                                       Home
+                                    </RouterLink>
+                                </li>
+
                                 <li>
                                     <RouterLink to="/about" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     >
@@ -41,7 +48,12 @@
 
                         <span aria-hidden="true" class="block h-6 w-px rounded-full bg-gray-200"></span>
 
-                        <img class="h-8 w-8 rounded-full" :src="user.picture" alt=""> 
+                        <div v-if="user.picture">
+                            <img class="h-8 w-8 rounded-full" :src="user.picture" alt=""> 
+                        </div>
+                        <div v-else>
+                            <img class="h-8 w-8 rounded-full" src="https://i.imgur.com/5Ke5t6f.jpg" alt=""> 
+                        </div>
 
 
                         <div class="hidden sm:flex">
