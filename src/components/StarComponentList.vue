@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-5 pb-7">
+    <div class="container mx-auto mt-5">
         <div class="relative block overflow-hidden rounded-lg dark:bg-gray-800 border border-gray-700 p-4 sm:p-6 lg:p-8">
             <img :src="image" alt="Image description" class="absolute inset-0 h-full w-full object-cover opacity-5">
 

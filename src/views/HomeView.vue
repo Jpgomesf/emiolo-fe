@@ -16,19 +16,23 @@
 </template>
 
 <script setup lang="ts">
-import { useVisibleStore } from '@/stores/visible.store';
 import HomeCard from '@/components/HomeCard.vue';
 import Header from '@/components/Header.vue';
 
-import { useStarStore } from '@/stores/star.store';
 import { onMounted } from 'vue';
 
+import { useVisibleStore } from '@/stores/visible.store';
+import { useStarStore } from '@/stores/star.store';
+import { useUserStore } from '@/stores/user.store';
+
+const userStore = useUserStore();
 const starStore = useStarStore();
 
 onMounted(() => {
-    starStore.fetchShips();
-    starStore.fetchCharacters();
-    starStore.fetchPlanet();
+  starStore.fetchShips();
+  starStore.fetchCharacters();
+  starStore.fetchPlanet();
+  userStore.fetchUsers();
 })
 
 const homeHeader = {
