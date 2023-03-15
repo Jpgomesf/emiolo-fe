@@ -2,13 +2,16 @@
   <section class="bg-white dark:bg-gray-900">
 
     <Header :title="homeHeader.title" :description="homeHeader.description" />
-    
+
     <div class="container pb-5 md:pb-0 lg:pb-0 mx-auto">
       <div class="flex">
         <div class="px-5 sm:px-1 md:px-0 sm:flex-col md:flex-col lg:px-0 lg:flex lg:space-x-4 lg:flex-row">
-          <HomeCard :link="charCard.link" :title="charCard.title" :message="charCard.message" :picture="charCard.picture"/>
-          <HomeCard :link="shipsCard.link" :title="shipsCard.title" :message="shipsCard.message" :picture="shipsCard.picture"/>
-          <HomeCard :link="planetCard.link" :title="planetCard.title" :message="planetCard.message" :picture="planetCard.picture"/>
+          <HomeCard :link="charCard.link" :title="charCard.title" :message="charCard.message"
+            :picture="charCard.picture" />
+          <HomeCard :link="shipsCard.link" :title="shipsCard.title" :message="shipsCard.message"
+            :picture="shipsCard.picture" />
+          <HomeCard :link="planetCard.link" :title="planetCard.title" :message="planetCard.message"
+            :picture="planetCard.picture" />
         </div>
       </div>
     </div>
@@ -19,7 +22,7 @@
 import HomeCard from '@/components/HomeCard.vue';
 import Header from '@/components/Header.vue';
 
-import { onMounted } from 'vue';
+import { onMounted, watchEffect } from 'vue';
 
 import { useVisibleStore } from '@/stores/visible.store';
 import { useStarStore } from '@/stores/star.store';
@@ -33,6 +36,12 @@ onMounted(() => {
   starStore.fetchCharacters();
   starStore.fetchPlanet();
   userStore.fetchUsers();
+});
+
+watchEffect(() => {
+  if (starStore.planet) {
+    starStore.fetchResidents();
+  }
 })
 
 const homeHeader = {

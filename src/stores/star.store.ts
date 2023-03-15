@@ -6,14 +6,15 @@ import type { ShipModel } from '@/models/ship.model';
 
 interface StarInterface {
   planet: PlanetModel | null;
-  characters: CharacterModel | null;
+  characters: CharacterModel[] | null;
   ships: ShipModel[] | null;
+  residents: CharacterModel[] | null;
 }
 
-async function fetchAndSaveDataArray(endpoint: string, key: string, store: any) {
+async function fetchAndSaveDataArray<T>(endpoint: string, key: string, store: any) {
   try {
     const response = await star.get(endpoint);
-    const data = response.data.results;
+    const data = response.data.results as T[];
     const saved = JSON.stringify(data);
     localStorage.setItem(key, saved);
     store[key] = data;
@@ -23,10 +24,10 @@ async function fetchAndSaveDataArray(endpoint: string, key: string, store: any) 
   }
 }
 
-async function fetchAndSaveData(endpoint: string, key: string, store: any) {
-  try{
+async function fetchAndSaveData<T>(endpoint: string, key: string, store: any) {
+  try {
     const response = await star.get(endpoint);
-    const data = response.data;
+    const data = response.data as T;
     const saved = JSON.stringify(data);
     localStorage.setItem(key, saved);
     store[key] = data;
@@ -42,42 +43,60 @@ export const useStarStore = defineStore({
     planet: null,
     characters: null,
     ships: null,
+    residents: null,
   }),
   getters: {
     getCharacters(state): CharacterModel[] | null {
       const data = localStorage.getItem('chars');
       return data ? JSON.parse(data) : state.characters;
     },
-    getShips(state):  ShipModel[] | null {
+    getShips(state): ShipModel[] | null {
       const data = localStorage.getItem('ships');
       return data ? JSON.parse(data) : state.ships;
     },
     getPlanet(state): PlanetModel | null {
       const data = localStorage.getItem('planet');
       return data ? JSON.parse(data) : state.planet;
-    }
+    },
   },
   actions: {
     async fetchCharacters() {
-      if(localStorage.getItem('chars')) {
+      if (localStorage.getItem('chars')) {
         return;
       } else {
-        await fetchAndSaveDataArray('people/', 'chars', this);
+        await fetchAndSaveDataArray<CharacterModel>('people/', 'chars', this);
       }
     },
     async fetchShips() {
-      if(localStorage.getItem('ships')) {
+      if (localStorage.getItem('ships')) {
         return;
       } else {
-        await fetchAndSaveDataArray('starships/', 'ships', this);
+        await fetchAndSaveDataArray<ShipModel>('starships/', 'ships', this);
       }
     },
     async fetchPlanet() {
-      if(localStorage.getItem('planet')) {
+      if (localStorage.getItem('planet')) {
         return;
       } else {
-        await fetchAndSaveData('planets/1', 'planet', this);
+        await fetchAndSaveData<PlanetModel>('planets/1', 'planet', this);
       }
-    }
+    },
+    async fetchResidents() {
+      if (localStorage.getItem('residents')) {
+        return;
+      } else {
+        const planet = this.planet;
+        if (!planet) return;
+
+        const residentUrls = planet.residents.slice(0, 4);
+        const residentRequests = residentUrls.map((url) => star.get<CharacterModel>(url));
+        const responses = await Promise.all(residentRequests);
+        const residents = responses.map((response) => response.data);
+
+        this.residents = residents;
+        localStorage.setItem('residents', JSON.stringify(residents));
+        console.log(`Fetched and saved data for residents`, residents);
+      }
+    },
   },
 });

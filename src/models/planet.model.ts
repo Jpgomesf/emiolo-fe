@@ -8,4 +8,5 @@ export interface PlanetModel {
 	terrain: string,
 	surface_water: string,
     population: string,
+	residents: string[],
 }
