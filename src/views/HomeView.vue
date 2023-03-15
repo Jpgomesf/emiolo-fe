@@ -3,14 +3,14 @@
 
     <Header :title="homeHeader.title" :description="homeHeader.description" />
     
-    <div class="flex">
-      <div class="flex container mx-auto space-x-4">
-        <HomeCard :link="charCard.link" :title="charCard.title" :message="charCard.message" :picture="charCard.picture"/>
-        <HomeCard :link="shipsCard.link" :title="shipsCard.title" :message="shipsCard.message" :picture="shipsCard.picture"/>
-        <HomeCard :link="planetCard.link" :title="planetCard.title" :message="planetCard.message" :picture="planetCard.picture"/>
+    <div class="container pb-5 md:pb-0 lg:pb-0 mx-auto">
+      <div class="flex">
+        <div class="px-5 sm:px-1 md:px-0 sm:flex-col md:flex-col lg:px-0 lg:flex lg:space-x-4 lg:flex-row">
+          <HomeCard :link="charCard.link" :title="charCard.title" :message="charCard.message" :picture="charCard.picture"/>
+          <HomeCard :link="shipsCard.link" :title="shipsCard.title" :message="shipsCard.message" :picture="shipsCard.picture"/>
+          <HomeCard :link="planetCard.link" :title="planetCard.title" :message="planetCard.message" :picture="planetCard.picture"/>
+        </div>
       </div>
-
-
     </div>
   </section>
 </template>

@@ -5,7 +5,7 @@
         <CharacterGroup />
     </StarComponentList>
 
-    <BackButton class="pt-3 justify-end"/>
+    <BackButton class="pt-3 lg:pb-5 pb-10 lg:justify-end justify-center"/>
 </template>
   
 <script setup lang="ts">

@@ -8,7 +8,7 @@
             </aside>
 
             <main aria-label="Main"
-                class="flex items-center justify-center p-12 md:py-8 lg:col-span-7 lg:py-12 lg:px-10 xl:col-span-5">
+                class="flex items-center justify-center min-h-screen p-12 md:py-8 lg:col-span-7 lg:py-12 lg:px-10 xl:col-span-5">
                 <div class="lg:max-w-3xl">
                     <a class="block text-blue-600" href="/">
                         <span class="sr-only">Home</span>

@@ -2,7 +2,7 @@
     <header aria-label="Site Header" class="dark:transparent">
         <div class="container mx-auto lg:min-h-[7vh]">
             <div class="flex h-16 items-center justify-between">
-                <div class="md:flex md:items-center md:gap-12">
+                <div class="pl-6 md:pl-0 flex items-center md:gap-12">
                     <a class="block text-teal-600 dark:text-teal-600" href="/">
                         <svg class="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -31,8 +31,8 @@
                 </div>
 
 
-                <div class="flex items-center gap-4 text-md">
-                    <div class="sm:flex items-center sm:gap-4">
+                <div class="flex items-center gap-2 lg:gap-4 text-md">
+                    <div class="flex items-center lg:gap-3 gap-4">
 
                         <p class="text-gray-500 transition dark:text-white">
                             {{ user.name }}
@@ -56,7 +56,7 @@
                         </div>
                     </div>
 
-                    <div class="block md:hidden">
+                    <div class="block sm:hidden pr-3">
                         <button
                             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

@@ -5,7 +5,7 @@
         <ShipGroup />
     </StarComponentList>
 
-    <BackButton class="pt-3 pb-5 justify-center"/> 
+    <BackButton class="pt-3 lg:pb-5 pb-10 lg:justify-end justify-center"/> 
 </template>
   
 <script setup lang="ts">

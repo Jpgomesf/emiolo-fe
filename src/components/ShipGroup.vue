@@ -4,27 +4,31 @@
         v-for="ship in ships" :key="ship.name">
         <div class="w-full">
             <h6 class="text-lg font-bold text-gray-200">{{ ship.name }}</h6>
-            <div class="flex">
-                <div class="mt-1 flex-col">
-                    <p class="text-sm font-normal text-gray-200">{{ 'Length: ' + ship.length }}</p>
+            <div class="flex-col lg:flex lg:flex-row mt-1 lg:space-x-4">
+                <div class="">
+                    <p class="text-sm font-normal text-gray-200">{{ 'Length: ' + ship.length +"m" }}</p>
                     <p class="text-sm font-normal text-gray-200">{{ 'Manufacturer: ' + ship.manufacturer }}</p>
                 </div>
-                <div class="mt-1 ml-4 flex-col">
-                    <p class="text-sm font-normal text-gray-200">{{ 'Price: ' + ship.cost_in_credits }}</p>
+
+                <div>
+                    <p class="text-sm font-normal text-gray-200">{{ 'Price: ' + "$"+ship.cost_in_credits }}</p>
                     <p class="text-sm font-normal text-gray-200">{{ 'Model: ' + ship.model }}</p>
                 </div>
-                <div class="mt-1 ml-4 flex-col">
+
+                <div>
                     <p class="text-sm font-normal text-gray-200">{{ 'Max A. Speed: ' + ship.max_atmosphering_speed }}</p>
                     <p class="text-sm font-normal text-gray-200">{{ 'Crew: ' + ship.crew }}</p>
                 </div>
-                <div class="mt-1 ml-4 flex-col">
-                    <p class="text-sm font-normal text-gray-200">{{ 'Cargo capacity: ' + ship.cargo_capacity }}</p>
+
+                <div>
+                    <p class="text-sm font-normal text-gray-200">{{ 'Cargo capacity: ' + ship.cargo_capacity+ "kg" }}</p>
                     <p class="text-sm font-normal text-gray-200">{{ 'Consumables: ' + ship.consumables }}</p>
                 </div>
-                <div class="mt-1 ml-4 flex-col">
+                <div>
                     <p class="text-sm font-normal text-gray-200">{{ 'Hyperdrive rating: ' + ship.hyperdrive_rating }}</p>
                     <p class="text-sm font-normal text-gray-200">{{ 'Starship class: ' + ship.starship_class }}</p>
                 </div>
+
             </div>
         </div>
 

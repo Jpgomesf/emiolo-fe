@@ -1,6 +1,6 @@
 <template>
     <header class="dark:bg-gray-900">
-        <div class="container mx-auto py-8 ">
+        <div class="container mx-auto p-6 md:p-2 lg:p-0 lg:py-8 ">
             <div class="mt-3 flex-col">
                 <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
                     {{ title }}

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto mt-5 pb-7">
+    <div class="container mx-auto mt-5 px-4 sm:px-2 md:px-0 pb-7">
         <div class="relative block overflow-hidden rounded-t-md dark:bg-gray-800 p-4 sm:p-6 lg:p-8">
             <div class="container mt-1 mx-auto">
                 <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
@@ -51,7 +51,7 @@
                         </h3>
                     </a>
 
-                    <div class="space-x-2 mt-1">
+                    <div class="flex-col md:flex-row md:space-y-2 md:space-x-2  space-x-1 space-y-1">
                             <div class="tag bg-purple-100 text-purple-700">
                                 {{ "Rotation period: " + planet?.rotation_period }}
                             </div>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
 
-                    <div class="mt-2 text-md leading-relaxed text-gray-300 dark:text-gray-200 space-y-4">
+                    <div class="mt-5 text-md leading-relaxed text-gray-300 dark:text-gray-200 space-y-4">
                         <p>
                             Tatooine is a harsh and unforgiving world, with a climate characterized by extreme heat and frequent sandstorms. 
                             The planet is sparsely populated, with only a few small towns and settlements scattered across its vast deserts. 
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </article>
-            <BackButton class="py-3 justify-end"/>
+            <BackButton class="py-3 lg:justify-end justify-center"/>
         </div>
     </div>
 </template>
