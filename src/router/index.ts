@@ -13,6 +13,12 @@ const router = createRouter({
       beforeEnter: authGuard,
     },
     {
+      path: '/tatooine-residents',
+      name: 't-residents',
+      component: () => import('@/views/ResidentsView.vue'),
+      beforeEnter: authGuard,
+    },
+    {
       path:'/users-list',
       name:'users-list',
       component: () => import('@/views/UserListView.vue'),

@@ -58,6 +58,10 @@ export const useStarStore = defineStore({
       const data = localStorage.getItem('planet');
       return data ? JSON.parse(data) : state.planet;
     },
+    getResidents(state): CharacterModel[] | null {
+      const data = localStorage.getItem('residents');
+      return data ? JSON.parse(data) : state.residents;
+    },
   },
   actions: {
     async fetchCharacters() {
