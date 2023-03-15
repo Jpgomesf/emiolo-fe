@@ -33,11 +33,7 @@ export const useUserStore = defineStore({
   },
   actions: {
     async fetchUsers(): Promise<void> {
-      if (localStorage.getItem("users")) {
-        return;
-      } else {
-        await fetchAndSaveUsers("/users", "users", this);
-      }
+      await fetchAndSaveUsers("/users", "users", this);
     },
   },
 });
