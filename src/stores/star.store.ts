@@ -6,7 +6,7 @@ import type { ShipModel } from '@/models/ship.model';
 
 interface StarInterface {
   planet: PlanetModel | null;
-  characters: CharacterModel[] | null;
+  characters: CharacterModel | null;
   ships: ShipModel[] | null;
 }
 
