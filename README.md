@@ -10,6 +10,10 @@ This is a frontend application Emiolo company.
 
 ## Project Setup
 
+```bash
+$ Before running the app you will need to set up your google_id on the .env file.
+```
+
 ```sh
 git clone https://github.com/Jpgomesf/emiolo-fe.git
 ```
