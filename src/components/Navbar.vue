@@ -12,7 +12,7 @@
                     </a>
                     <div class="hidden md:block">
                         <nav aria-label="Site Nav">
-                            <ul class="flex items-center gap-6 text-sm">
+                            <ul class="flex items-center gap-6 text-md">
                                 <li>
                                     <RouterLink to="/" class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     >
@@ -31,7 +31,7 @@
                 </div>
 
 
-                <div class="flex items-center gap-4 text-sm">
+                <div class="flex items-center gap-4 text-md">
                     <div class="sm:flex items-center sm:gap-4">
 
                         <p class="text-gray-500 transition dark:text-white">

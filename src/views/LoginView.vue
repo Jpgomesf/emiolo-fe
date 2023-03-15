@@ -1,14 +1,14 @@
 <template>
     <section class="bg-white dark:bg-gray-900">
-        <div class="lg:grid lg:min-h-screen lg:grid-cols-12 flex">
-            <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-7">
+        <div class="lg:grid lg:min-h-screen lg:grid-cols-12 flex items-center justify-center">
+            <aside class="relative hidden lg:block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-7">
                 <img alt="Pattern"
                     src="https://i.imgur.com/5Ke5t6f.jpg"
-                    class="absolute inset-0 h-full w-full object-cover" />
+                    class="lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-cover"/>
             </aside>
 
             <main aria-label="Main"
-                class="flex items-center justify-center py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-10 xl:col-span-5">
+                class="flex items-center justify-center p-12 md:py-8 lg:col-span-7 lg:py-12 lg:px-10 xl:col-span-5">
                 <div class="lg:max-w-3xl">
                     <a class="block text-blue-600" href="/">
                         <span class="sr-only">Home</span>
@@ -24,9 +24,7 @@
                     </h1>
 
                     <p class="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
-                        dolorum aliquam, quibusdam aperiam voluptatum. Lorem ipsum dolor sit amet, 
-                        consectetur adipisicing elit. 
+                        This is a web application built for an entrance exam.  
                     </p>
 
                     <div class="flex mt-4 items-center justify-center">
